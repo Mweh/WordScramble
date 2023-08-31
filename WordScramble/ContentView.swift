@@ -37,6 +37,8 @@ struct ContentView: View {
                     TextField("", text: $newWord)
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
+                } header: {
+                    Text("Answer here")
                 }
                 Section{
                     ForEach(usedWords, id: \.self){ word in
@@ -104,8 +106,8 @@ struct ContentView: View {
             usedWords.insert(answer, at: 0)
         }
         
+        usedWordsCount += answer.count*1
         newWord = ""
-        usedWordsCount += 1
     }
     
     func isOriginal(word: String) -> Bool {
